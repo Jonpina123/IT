@@ -95,11 +95,11 @@ main {
 }
 
 .service-box {
-    border: 2px solid #4169E1; /* royal blue border */
+    border: 2px solid #f9f9f9; /* royal blue border */
     border-radius: 6px;
     padding: 15px;
     margin-bottom: 20px;
-    background-color: #f9f9f9; /* light background for contrast */
+    background-color: #4169E1; /* light background for contrast */
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -110,7 +110,7 @@ main {
 
 .service-box a {
     font-size: 1.2em;
-    color: #4169E1;
+    color: #f9f9f9;
     text-decoration: none;
 }
 
