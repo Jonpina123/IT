@@ -31,6 +31,12 @@ header h1 {
     text-align: center;
 }
 
+h2, 
+p {
+    text-align: center;
+}
+
+
 /* Contact button on top-right */
 .contact-btn {
     position: absolute;
@@ -145,6 +151,40 @@ main {
     font-size: 0.95em;
     color: #333;
 }
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* mobile: 1 column */
+    gap: 20px;
+}
+
+.service-box {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.service-box a {
+    text-decoration: none;
+    font-size: 1.2em;
+    color: #000;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.service-box p {
+    margin: 0;
+    color: #555;
+}
+
+/* Desktop: 2 per row */
+@media screen and (min-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr); /* two columns on desktop */
+    }
+}
+
 
 /* Sticky footer */
 footer {
@@ -163,5 +203,20 @@ footer {
     .contact-btn, .menu-btn {
         padding: 6px 12px;
         font-size: 14px;
+    }
+}
+/* Add a subtle shadow and lift effect on hover */
+@media screen and (min-width: 768px) {
+    .service-box {
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+        cursor: pointer;
+    }
+    .service-box:hover {
+        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        transform: translateY(-5px);
+    }
+    .service-box a:hover {
+        color: #007BFF; /* Change link color on hover */
+        text-decoration: underline;
     }
 }
