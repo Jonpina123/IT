@@ -7,26 +7,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <header>
-    <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+<button class="menu-btn">☰ Menu</button>
+<nav id="nav-menu">
+    <a href="index.html">Home</a>
+    <a href="tv-mounting.html">TV Mounting</a>
+    <a href="soho.html">SOHO Service</a>
+    <a href="projector-mapping.html">Projector Mapping</a>
+    <a href="wiring-network.html">Wiring & Network</a>
+    <a href="it-consulting.html">IT Consulting</a>
+    <a href="laser-engraving.html">Laser Engraving</a>
+    <a href="camera-installation.html">Camera Install</a>
+    <a href="speakers-home-theater.html">Speakers/Home Theater</a>
+</nav>
     <h1>Piña IT Solutions</h1>
     <a class="contact-btn" href="tel:9564755670">Contact Us</a>
-
-    <nav id="nav-menu">
-        <a href="index.html">Home</a>
-        <a href="tv-mounting.html">TV Mounting</a>
-        <a href="soho.html">SOHO Service</a>
-        <a href="projector-mapping.html">Projector Mapping</a>
-        <a href="wiring-network.html">Wiring & Network</a>
-        <a href="it-consulting.html">IT Consulting</a>
-        <a href="laser-engraving.html">Laser Engraving</a>
-        <a href="camera-installation.html">Camera Install</a>
-        <a href="speakers-home-theater.html">Speakers/Home Theater</a>
-    </nav>
 </header>
-
-
 <main>
     <h2>Camera Installation Service</h2>
     <p>We install and configure surveillance cameras for homes and businesses, providing security, monitoring, and peace of mind with the latest technology and discreet cabling.</p>
@@ -36,11 +32,49 @@
     &copy; 2025 Piña IT Solutions
 </footer>
 <script>
-function toggleMenu() {
-    const menu = document.getElementById('nav-menu');
-    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+const menu = document.getElementById('nav-menu');
+const button = document.querySelector('.menu-btn');
+let navTimeout = null;
+
+// Detect coarse (touch) vs fine (mouse/trackpad) pointer
+const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+
+if (isCoarsePointer) {
+    // MOBILE/TABLET — click to toggle
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        // Toggle menu
+        menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+
+        // Remove highlight/focus from button
+        this.blur();
+    });
+
+    // Close menu when tapping outside
+    document.addEventListener('click', function(e) {
+        if (!menu.contains(e.target) && !button.contains(e.target)) {
+            menu.style.display = 'none';
+            button.blur(); // ensure highlight removed when closed from outside tap
+        }
+    });
+}
+else {
+    // DESKTOP — hover to open, leave to close
+    button.addEventListener('mouseover', () => {
+        clearTimeout(navTimeout);
+        menu.style.display = 'block';
+    });
+    button.addEventListener('mouseleave', () => {
+        navTimeout = setTimeout(() => { menu.style.display = 'none'; }, 500);
+    });
+    menu.addEventListener('mouseover', () => {
+        clearTimeout(navTimeout);
+    });
+    menu.addEventListener('mouseleave', () => {
+        navTimeout = setTimeout(() => { menu.style.display = 'none'; }, 500);
+    });
 }
 </script>
-
 </body>
 </html>

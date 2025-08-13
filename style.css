@@ -27,10 +27,9 @@ header {
 
 /* Company title centered */
 header h1 {
-    font-size: 24px;
+    font-size: 24;
     text-align: center;
 }
-
 h2, 
 p {
     text-align: center;
@@ -198,7 +197,7 @@ footer {
 /* Mobile Responsive tweak */
 @media (max-width: 600px) {
     header h1 {
-        font-size: 18px;
+        font-size: 16px;
     }
     .contact-btn, .menu-btn {
         padding: 6px 12px;
