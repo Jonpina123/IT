@@ -34,6 +34,16 @@ h2,
 p {
     text-align: center;
 }
+a,
+a:visited {
+    color: #4169E1; /* Same royal blue (or whatever you want) */
+    text-decoration: none; /* Optional – remove underline */
+}
+
+a:hover {
+    text-decoration: underline; /* Optional hover effect */
+}
+
 
 
 /* Contact button on top-right */
@@ -128,6 +138,7 @@ main {
     margin-bottom: 20px;
     background-color: #4169E1; /* light background for contrast */
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
 }
 
 .service-box:hover {
