@@ -8,16 +8,23 @@
 html, body {
     height: 100%;
     font-family: 'Times New Roman', Times, serif;
-    background-color: #000000;
     color: #64dfdf;
     display: flex;
     flex-direction: column;
 }
 
+body {
+  background-image: url(Background.png);
+  background-repeat: no-repeat;      /* prevents tiling */
+  background-size: cover;            /* scales image to cover page */
+  background-position: center;       /* centers the image */
+  background-attachment: fixed;  
+}
+
+
 /* Header styling */
 header {
-    background-color: #000000;
-    color: #64dfdf;
+    background-image: url(Header-Footer.233Z.png);
     padding: 15px;
     display: flex;
     align-items: center;
@@ -36,7 +43,7 @@ p {
 }
 a,
 a:visited {
-    color: #4169E1; /* Same royal blue (or whatever you want) */
+    color: #000000; /* Same royal blue (or whatever you want) */
     text-decoration: none; /* Optional – remove underline */
 }
 
@@ -168,10 +175,12 @@ main {
 }
 
 .service-box {
-    border: 1px solid #ccc;
+    border: 1px solid rgba(255,255,255,0.5);
     padding: 15px;
     border-radius: 8px;
-    background: #fff;
+    background-color: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(4px); /* blurs whatever is behind */
+    -webkit-backdrop-filter: blur(4px); /* for Safari/iOS */
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -187,15 +196,6 @@ main {
     margin: 0;
     color: #555;
 }
-
-/* Desktop: 2 per row */
-@media screen and (min-width: 768px) {
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr); /* two columns on desktop */
-    }
-}
-
-
 /* Sticky footer */
 footer {
     text-align: center;
@@ -228,5 +228,8 @@ footer {
     .service-box a:hover {
         color: #007BFF; /* Change link color on hover */
         text-decoration: underline;
+    }
+     .services-grid {
+        grid-template-columns: repeat(2, 1fr); /* two columns on desktop */
     }
 }
