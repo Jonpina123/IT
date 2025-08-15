@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piña IT Solutions - Home</title>
+    <title>Service Keyword | Piña IT Solutions</title>
+    <meta name="description" content="Professional TV mounting/cabling/IT services in the RGV. Call today!">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<button class="menu-btn">☰ Menu</button>
+<nav id="nav-menu">
+    <a href="index-spanish.html">Pagina de inicio</a>
+    <a href="tv-mounting-spanish.html">Servicio de montaje de TV</a>
+    <a href="soho-spanish.html">Configuraciones SOHO</a>
+    <a href="projector-mapping-spanish.html">Mapeo con Proyectores</a>
+    <a href="wiring-network-spanish.html">Cableado</a>
+    <a href="it-consulting-spanish.html">Consultoria de TI</a>
+    <a href="laser-engraving-spanish.html">Grabado Laser</a>
+    <a href="camera-installation-spanish.html">Instalacion de Camaras</a>
+    <a href="speaker-spanish.html">Altavoces y Cine</a>
+    <a href="iot-spanish.html">Internet de las Cosas</a>
+    <a href="FAQ-spanish.html">Preguntas Frecuentes</a>
+</nav>
+    <a href="index.html"><h1>Piña IT Solutions</h1></a>
+    <a class="contact-btn" href="tel:9564755670">Contacto</a>
+</header>
+<main>
+    <div style="text-align:center; margin-bottom: 18px;">
+        <a href="index.html" class="lang-btn">English</a>
+    </div>
+    <div class="intro-box">
+    <h2>Bien Venididos a Piña Solutiones de IT</h2>
+    <p>Su solución integral para servicios de TI, instalación y soluciones tecnológicas personalizadas. Explore nuestros servicios a continuación:</p>
+    </div>
+    <br><br>
+        <div class="center-wrapper">
+        <div class="expertise-box">
+            <h2>Pericia</h2>
+        </div>
+    </div>
+
+    <br>
+    <div class="services-grid">
+        <div class="service-box">
+            <a href="tv-mounting.html"><strong>Servicio de montaje de TV</strong></a>
+            <p class="service-desc">Instalaciones de TV seguras y profesionales con una apariencia limpia y moderna para su hogar o negocio.</p>
+        </div>
+
+        <div class="service-box">
+            <a href="camera-installation.html"><strong>Servicio de Instalacion de Camaras</strong></a>
+            <p class="service-desc">Instalaciones de cámaras de seguridad de alta calidad para vigilancia de hogares y negocios.</p>
+        </div>
+
+        <div class="service-box">
+            <a href="speakers-home-theater.html"><strong>Instalaciones de Altavoces y Cine en Casa</strong></a>
+            <p class="service-desc">Sistemas completos de cine en casa con instalación experta de altavoces y calibración de sonido.</p>
+        </div>
+
+        <div class="service-box">
+            <a href="wiring-network.html"><strong>Cableado</strong></a>
+            <p class="service-desc">Recableado y cableado de red seguro y eficiente para mantener sus dispositivos encendidos y conectados.</p>
+        </div>
+        <div class="service-box">
+            <a href="iot.html"><strong>Internet de las cosas</strong></a>
+            <p class="service-desc">Ayudar/instalar dispositivos IoT</p>
+        </div>
+    </div>
+    <br><br>
+        <div class="center-wrapper">
+        <div class="expertise-box">
+            <h2>Otros Servicios</h2>
+        </div>
+    </div>
+
+    <br>
+    <div class="services-grid">
+        <div class="service-box">
+            <a href="it-consulting.html"><strong>Consultoría de TI</strong></a>
+            <p class="service-desc">Asesoramiento experto en estrategias tecnológicas, hardware, software y planificación de infraestructura de TI.</p>
+        </div>
+
+        <div class="service-box">
+            <a href="soho.html"><strong>Configuraciones SOHO (oficina pequeña, oficina en casa)</strong></a>
+            <p class="service-desc">Soluciones personalizadas para optimizar espacios de oficina pequeña o en casa, mejorando la productividad y la confiabilidad.</p>
+        </div>
+
+        <div class="service-box">
+            <a href="projector-mapping.html"><strong>Servicio de Mapeo con Proyectores</strong></a>
+            <p class="service-desc">Dé vida a sus imágenes con un impresionante mapeo de proyección para eventos, exhibiciones y ocasiones especiales.</p>
+        </div>
+
+        <div class="service-box">
+            <a href="laser-engraving.html"><strong>Grabado láser</strong></a>
+            <p class="service-desc">Grabado de precisión para señalización, marcas, regalos y productos promocionales.</p>
+        </div>
+    </div>
+</main>
+<footer>
+    &copy; 2025 Piña IT Solutions
+</footer>
+<script>
+const menu = document.getElementById('nav-menu');
+const button = document.querySelector('.menu-btn');
+let navTimeout = null;
+
+// Detect coarse (touch) vs fine (mouse/trackpad) pointer
+const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+
+if (isCoarsePointer) {
+    // MOBILE/TABLET — click to toggle
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        // Toggle menu
+        menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+
+        // Remove highlight/focus from button
+        this.blur();
+    });
+
+    // Close menu when tapping outside
+    document.addEventListener('click', function(e) {
+        if (!menu.contains(e.target) && !button.contains(e.target)) {
+            menu.style.display = 'none';
+            button.blur(); // ensure highlight removed when closed from outside tap
+        }
+    });
+}
+else {
+    // DESKTOP — hover to open, leave to close
+    button.addEventListener('mouseover', () => {
+        clearTimeout(navTimeout);
+        menu.style.display = 'block';
+    });
+    button.addEventListener('mouseleave', () => {
+        navTimeout = setTimeout(() => { menu.style.display = 'none'; }, 500);
+    });
+    menu.addEventListener('mouseover', () => {
+        clearTimeout(navTimeout);
+    });
+    menu.addEventListener('mouseleave', () => {
+        navTimeout = setTimeout(() => { menu.style.display = 'none'; }, 500);
+    });
+}
+</script>
+</body>
+</html>
